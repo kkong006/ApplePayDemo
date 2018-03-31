@@ -15,12 +15,6 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
     
     var paymentReq: PKPaymentRequest!
     
-//    var paymentRequest: PKPaymentRequest! {
-//        didSet {
-//
-//        }
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -57,22 +51,6 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
         }
     }
     
-//    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod, handler completion: @escaping (PKPaymentRequestShippingMethodUpdate) -> Void) {
-//        completion(shippingMethod)
-//    }
-//
-//    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-//        <#code#>
-//    }
-//
-//    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didSelect shippingMethod: PKShippingMethod, handler completion: @escaping (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void) {
-//        completion(PKPaymentAuthorizationStatus.success, itemToSell(shipping: Double(shippingMethod.amount)))
-//    }
-//
-//    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
-//        completion(PKPaymentAuthorizationStatus.success)
-//    }
-    
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         let paymentResult = PKPaymentAuthorizationResult(status: .success, errors: [])
         completion(paymentResult)
@@ -93,13 +71,11 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
  
             paymentReq.supportedNetworks = paymentNetworks
             paymentReq.merchantCapabilities = .capability3DS
-//            paymentReq.requiredShippingContactFields = [.postalAddress]
             
             print("Amount " + amount.text!)
             
             if let rewardAmount = amount.text {
                 let voucher = getPaymentItem(cost: rewardAmount)
-                //print("Inside RewardAmount: " + voucher[0].label + " " + String(voucher[0].amount))
                 paymentReq.paymentSummaryItems = voucher
 
                 if let applePayVC = PKPaymentAuthorizationViewController.init(paymentRequest: paymentReq) {
