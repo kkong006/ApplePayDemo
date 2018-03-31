@@ -14,6 +14,7 @@
 		9C2D3986206F78DF00A2D9B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C2D3984206F78DF00A2D9B5 /* LaunchScreen.storyboard */; };
 		9C2D3991206F78E000A2D9B5 /* ApplePayDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D3990206F78E000A2D9B5 /* ApplePayDemoTests.swift */; };
 		9C2D399C206F78E000A2D9B5 /* ApplePayDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D399B206F78E000A2D9B5 /* ApplePayDemoUITests.swift */; };
+		9C2D39AC206F7A2A00A2D9B5 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2D39AB206F7A2A00A2D9B5 /* PassKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		9C2D3997206F78E000A2D9B5 /* ApplePayDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplePayDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C2D399B206F78E000A2D9B5 /* ApplePayDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePayDemoUITests.swift; sourceTree = "<group>"; };
 		9C2D399D206F78E000A2D9B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C2D39A9206F791000A2D9B5 /* ApplePayDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ApplePayDemo.entitlements; sourceTree = "<group>"; };
+		9C2D39AB206F7A2A00A2D9B5 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2D39AC206F7A2A00A2D9B5 /* PassKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +85,7 @@
 				9C2D398F206F78E000A2D9B5 /* ApplePayDemoTests */,
 				9C2D399A206F78E000A2D9B5 /* ApplePayDemoUITests */,
 				9C2D3979206F78DF00A2D9B5 /* Products */,
+				9C2D39AA206F7A2A00A2D9B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +102,7 @@
 		9C2D397A206F78DF00A2D9B5 /* ApplePayDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9C2D39A9206F791000A2D9B5 /* ApplePayDemo.entitlements */,
 				9C2D397B206F78DF00A2D9B5 /* AppDelegate.swift */,
 				9C2D397D206F78DF00A2D9B5 /* ViewController.swift */,
 				9C2D397F206F78DF00A2D9B5 /* Main.storyboard */,
@@ -123,6 +129,14 @@
 				9C2D399D206F78E000A2D9B5 /* Info.plist */,
 			);
 			path = ApplePayDemoUITests;
+			sourceTree = "<group>";
+		};
+		9C2D39AA206F7A2A00A2D9B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C2D39AB206F7A2A00A2D9B5 /* PassKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +208,14 @@
 					9C2D3977206F78DF00A2D9B5 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
+								enabled = 1;
+							};
+						};
 					};
 					9C2D398B206F78E000A2D9B5 = {
 						CreatedOnToolsVersion = 9.2;
@@ -426,10 +448,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ApplePayDemo/ApplePayDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GNMSVT9QR6;
 				INFOPLIST_FILE = ApplePayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ApplePayDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lahacks.ApplePayDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,10 +464,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ApplePayDemo/ApplePayDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GNMSVT9QR6;
 				INFOPLIST_FILE = ApplePayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ApplePayDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lahacks.ApplePayDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
