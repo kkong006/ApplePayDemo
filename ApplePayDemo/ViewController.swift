@@ -25,15 +25,6 @@ class ViewController: UIViewController, PKPaymentAuthorizationViewControllerDele
         // Dispose of any resources that can be recreated.
     }
     
-    func itemToSell(shipping: Double) -> [PKPaymentSummaryItem]{
-        let teeShirt = PKPaymentSummaryItem(label: "My tshirt", amount: 45.00)
-        let discount = PKPaymentSummaryItem(label: "Discount", amount: -20.00)
-        let shipping = PKPaymentSummaryItem(label: "Shipping", amount: NSDecimalNumber(string: "(shipping)"))
-        let totalAmount = teeShirt.amount.adding(discount.amount)
-        let totalPrice = PKPaymentSummaryItem(label: "Learnly", amount: totalAmount)
-        return [teeShirt, discount, shipping, totalPrice]
-    }
-    
     func stringtoDecimal(s: String) -> NSDecimalNumber {
         let formatter = NumberFormatter()
         formatter.generatesDecimalNumbers = true
